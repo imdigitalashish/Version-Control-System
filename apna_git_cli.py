@@ -21,7 +21,13 @@ if __name__ == "__main__":
             print("No snapshots found.")
             sys.exit()
         changes = get_changes(snapshots[-1], directory)
-        print(changes)
+        if len(changes) == 0:
+            print("NO CHANGES")
+        else:
+            for i in changes:
+                print(i)
+            
+            print("\n Files Changed")
     elif command == "log":
         snapshots = get_all_snapshots()
         for snapshot in snapshots:
